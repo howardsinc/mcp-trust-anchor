@@ -51,9 +51,13 @@ services:
     environment:
       TRUST_ANCHOR_HOST: 0.0.0.0
       TRUST_ANCHOR_PORT: 8000
-      REDIS_URL: redis://redis:6379/0
-      PRIVATE_KEY_PATH: /opt/trust-anchor/keys/private.pem
-      PUBLIC_KEY_PATH: /opt/trust-anchor/keys/public.pem
+      # NOTE: the app reads MCP_REDIS_* / TRUST_ANCHOR_KEYS_DIR (see
+      # server/trust_anchor/config.py). REDIS_URL / PRIVATE_KEY_PATH /
+      # PUBLIC_KEY_PATH are NOT read by any code path.
+      MCP_REDIS_HOST: redis
+      MCP_REDIS_PORT: 6379
+      MCP_REDIS_DB: 0
+      TRUST_ANCHOR_KEYS_DIR: /opt/trust-anchor/keys
       PUBLISHER_KEYS: ${PUBLISHER_KEYS:-dev-publisher-key}
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
     volumes:
