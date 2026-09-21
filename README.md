@@ -1,5 +1,7 @@
 # MCP Trust Anchor
 
+[![CI](https://github.com/howardsinc/mcp-trust-anchor/actions/workflows/ci.yml/badge.svg)](https://github.com/howardsinc/mcp-trust-anchor/actions/workflows/ci.yml)
+
 A cryptographically-secured tool execution framework for AI assistants. Trust Anchor provides signed, verified tool execution for Claude Desktop and Claude Code via the Model Context Protocol (MCP).
 
 ## Overview
@@ -34,7 +36,7 @@ the signed-tool pipeline works with the shipped mock FortiGate.
 The sections below are the full reference. Clone the repo first:
 
 ```bash
-git clone <this-repo-url> mcp-trust-anchor
+git clone https://github.com/howardsinc/mcp-trust-anchor.git
 cd mcp-trust-anchor
 ```
 
