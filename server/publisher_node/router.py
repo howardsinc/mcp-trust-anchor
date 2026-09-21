@@ -41,7 +41,7 @@ from .models import (
 from .signing import get_signing_service
 
 # Import Redis client
-from ..trust_anchor.redis_client import get_redis
+from trust_anchor.redis_client import get_redis
 
 logger = logging.getLogger(__name__)
 

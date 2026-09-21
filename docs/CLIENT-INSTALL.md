@@ -21,7 +21,7 @@ The client consists of two components:
 
 ```powershell
 # Download or clone the repository
-git clone https://github.com/your-org/mcp-trust-anchor.git
+git clone https://github.com/howardsinc/mcp-trust-anchor.git
 cd mcp-trust-anchor
 
 # Run bootstrap (as Administrator for Program Files install)
@@ -91,7 +91,7 @@ cd mcp-trust-anchor
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/mcp-trust-anchor.git
+git clone https://github.com/howardsinc/mcp-trust-anchor.git
 cd mcp-trust-anchor
 
 # Run bootstrap

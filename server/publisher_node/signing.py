@@ -57,8 +57,8 @@ class ToolSigningService:
             )
 
         # Import here to avoid circular imports
-        from ..security.crypto.keys import KeyManager
-        from ..security.crypto.signing import ManifestSigner
+        from security.crypto.keys import KeyManager
+        from security.crypto.signing import ManifestSigner
 
         # Initialize key manager
         self._key_manager = KeyManager(str(self._config.keys_dir))
@@ -169,7 +169,7 @@ class ToolSigningService:
         try:
             self._ensure_initialized()
 
-            from ..security.crypto.signing import SignatureVerifier
+            from security.crypto.signing import SignatureVerifier
 
             public_key_pem = self._key_manager.export_public_key()
             verifier = SignatureVerifier(public_key_pem)

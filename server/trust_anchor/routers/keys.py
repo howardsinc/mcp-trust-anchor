@@ -27,7 +27,7 @@ SIGNING_ALGORITHM = "RSA-2048-PKCS1v15-SHA256"
 
 def _get_key_manager():
     """Get or create the KeyManager instance."""
-    from ...security.crypto.keys import KeyManager
+    from security.crypto.keys import KeyManager
     return KeyManager(str(KEYS_DIR))
 
 

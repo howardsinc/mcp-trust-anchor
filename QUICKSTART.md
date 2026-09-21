@@ -11,7 +11,7 @@ Works on macOS, Windows, Linux. Requires [Docker Desktop](https://www.docker.com
 or Docker Engine + Compose v2.
 
 ```bash
-git clone <repo-url> mcp-trust-anchor
+git clone https://github.com/howardsinc/mcp-trust-anchor.git
 cd mcp-trust-anchor
 
 # Start Trust Anchor + Redis (keys auto-generated on first run)
@@ -31,7 +31,7 @@ That's the server. Jump to **Step 3 — Load sample tools** below.
 Production deployment or if you specifically want a systemd service.
 
 ```bash
-git clone <repo-url> mcp-trust-anchor
+git clone https://github.com/howardsinc/mcp-trust-anchor.git
 cd mcp-trust-anchor
 sudo ./server/install.sh
 curl http://localhost:8000/health

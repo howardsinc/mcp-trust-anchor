@@ -38,11 +38,11 @@ test_endpoint() {
 
     if [[ "$response" == "$expected_status" ]]; then
         echo -e "${GREEN}PASS${NC} (HTTP $response)"
-        ((PASSED++))
+        PASSED=$((PASSED+1))
         return 0
     else
         echo -e "${RED}FAIL${NC} (HTTP $response, expected $expected_status)"
-        ((FAILED++))
+        FAILED=$((FAILED+1))
         return 1
     fi
 }
@@ -61,10 +61,10 @@ if [[ -f /tmp/test_response.json ]]; then
     if grep -q "BEGIN PUBLIC KEY" /tmp/test_response.json 2>/dev/null || \
        jq -e '.public_key' /tmp/test_response.json >/dev/null 2>&1; then
         echo -e "  Key format:                       ${GREEN}VALID${NC}"
-        ((PASSED++))
+        PASSED=$((PASSED+1))
     else
         echo -e "  Key format:                       ${RED}INVALID${NC}"
-        ((FAILED++))
+        FAILED=$((FAILED+1))
     fi
 fi
 echo

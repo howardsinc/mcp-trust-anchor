@@ -16,7 +16,7 @@ The fastest way to install is using the automated script:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/mcp-trust-anchor.git
+git clone https://github.com/howardsinc/mcp-trust-anchor.git
 cd mcp-trust-anchor
 
 # Run installer as root

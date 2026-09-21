@@ -25,7 +25,7 @@ from .redis_client import get_redis_client, get_redis
 from .routers import tools_router, keys_router, runbooks_router, subscribers_router
 
 # Import Publisher router
-from ..publisher_node import publisher_router
+from publisher_node import publisher_router
 
 # Configure logging
 logging.basicConfig(
