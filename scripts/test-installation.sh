@@ -31,10 +31,11 @@ test_endpoint() {
     local name=$1
     local endpoint=$2
     local expected_status=${3:-200}
+    local method=${4:-GET}
 
     printf "Testing %-30s " "$name..."
 
-    response=$(curl -s -w "%{http_code}" -o /tmp/test_response.json "$SERVER_URL$endpoint" 2>/dev/null)
+    response=$(curl -s -X "$method" -w "%{http_code}" -o /tmp/test_response.json "$SERVER_URL$endpoint" 2>/dev/null)
 
     if [[ "$response" == "$expected_status" ]]; then
         echo -e "${GREEN}PASS${NC} (HTTP $response)"
@@ -71,7 +72,7 @@ echo
 
 # Test 3: Tool registry
 echo -e "${YELLOW}[3] Tool Registry${NC}"
-test_endpoint "List tools" "/tools/list"
+test_endpoint "List tools" "/tools"
 
 # Check for sample tools
 if [[ -f /tmp/test_response.json ]]; then
@@ -82,12 +83,12 @@ echo
 
 # Test 4: Publisher API
 echo -e "${YELLOW}[4] Publisher API${NC}"
-test_endpoint "Publisher status" "/publisher/status"
+test_endpoint "Publisher health" "/publisher/health"
 echo
 
 # Test 5: Subscriber registration
 echo -e "${YELLOW}[5] Subscriber API${NC}"
-test_endpoint "Subscriber endpoint" "/subscribers/register" "422"  # Expected: validation error (no body)
+test_endpoint "Subscriber endpoint" "/subscribers/register" "422" "POST"  # Expected: validation error (no body)
 echo
 
 # Test 6: Tool fetch (if tools exist)

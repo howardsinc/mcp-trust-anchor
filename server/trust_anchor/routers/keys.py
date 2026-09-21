@@ -10,16 +10,20 @@ Endpoints:
 
 import logging
 from datetime import datetime
-from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
+
+from ..config import settings
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/keys", tags=["Keys"])
 
-# Key storage configuration
-KEYS_DIR = Path(__file__).parent.parent.parent.parent / "keys"
+# Key storage configuration. Use the shared setting (TRUST_ANCHOR_KEYS_DIR,
+# default /opt/trust-anchor/keys) rather than walking up from __file__: both
+# deploy layouts copy this package to the install root, where four parents up
+# resolves to "/keys".
+KEYS_DIR = settings.keys_dir
 
 # Algorithm identifier
 SIGNING_ALGORITHM = "RSA-2048-PKCS1v15-SHA256"
